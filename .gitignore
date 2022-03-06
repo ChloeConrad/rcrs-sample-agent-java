@@ -52,3 +52,6 @@ package-lock.json
 logs
 jars
 lib
+
+# Java properties
+gradle.properties
