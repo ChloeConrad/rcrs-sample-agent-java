@@ -20,7 +20,7 @@ import sample.AbstractSampleAgent;
 import sample.DistanceSorter;
 
 /**
- * A sample ambulance team agent.
+ * A sample ambulance team agent. ceci est un test
  */
 public class SampleAmbulanceTeam extends AbstractSampleAgent<AmbulanceTeam> {
 
