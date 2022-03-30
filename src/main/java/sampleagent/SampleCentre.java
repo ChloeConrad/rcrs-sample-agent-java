@@ -18,7 +18,7 @@ public class SampleCentre extends StandardAgent<Building> {
   private static final Logger LOG = Logger.getLogger(SampleCentre.class);
   private ArrayList<Pheromone> pheromones_fb_AT = new ArrayList<Pheromone>();
   private ArrayList<Pheromone> pheromones_pf = new ArrayList<Pheromone>();
-
+  
 
   @Override
   public String toString() {

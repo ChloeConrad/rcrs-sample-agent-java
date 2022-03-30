@@ -107,6 +107,7 @@ public class SamplePoliceForce extends AbstractSampleAgent<PoliceForce> {
   private List<EntityID> getBlockedRoads() {
     Collection<
         StandardEntity> e = model.getEntitiesOfType(StandardEntityURN.ROAD);
+    
     List<EntityID> result = new ArrayList<EntityID>();
     for (StandardEntity next : e) {
       Road r = (Road) next;
