@@ -8,9 +8,11 @@ import rescuecore2.messages.Command;
 import rescuecore2.standard.components.StandardAgent;
 import rescuecore2.standard.entities.Building;
 import rescuecore2.standard.entities.Human;
+import rescuecore2.standard.entities.*;
 import rescuecore2.standard.entities.StandardEntityURN;
 import rescuecore2.worldmodel.ChangeSet;
 import rescuecore2.worldmodel.EntityID;
+import sample.AbstractSampleAgent;
 
 /**
  * A sample centre agent.
@@ -62,9 +64,15 @@ public class SampleCentre extends StandardAgent<Building> {
 	  
   }
   
-  public void updatePheromone(StandardAgent<Human> agent) {
-	  if(agent.getRequestedEntityURNs()=0) {
+  @SuppressWarnings("rawtypes")
+public void updatePheromone(AbstractSampleAgent agent) {
+	  if(agent instanceof SampleFireBrigade && agent instanceof SampleAmbulanceTeam) {
 		  
 	  }
-  }
+	  else if (agent instanceof SamplePoliceForce) {
+		  
+	  }
+		  
+	  }
+  
 }
