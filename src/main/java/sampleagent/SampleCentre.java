@@ -7,8 +7,10 @@ import org.apache.log4j.Logger;
 import rescuecore2.messages.Command;
 import rescuecore2.standard.components.StandardAgent;
 import rescuecore2.standard.entities.Building;
+import rescuecore2.standard.entities.Human;
 import rescuecore2.standard.entities.StandardEntityURN;
 import rescuecore2.worldmodel.ChangeSet;
+import rescuecore2.worldmodel.EntityID;
 
 /**
  * A sample centre agent.
@@ -44,5 +46,25 @@ public class SampleCentre extends StandardAgent<Building> {
   protected EnumSet<StandardEntityURN> getRequestedEntityURNsEnum() {
     return EnumSet.of(StandardEntityURN.FIRE_STATION,
         StandardEntityURN.AMBULANCE_CENTRE, StandardEntityURN.POLICE_OFFICE);
+  }
+  /*
+   * Getter of the arraylist of pheromones fb AT
+   */
+  public  ArrayList<Pheromone> getPhermones_fb_AT(){
+	  return this.pheromones_fb_AT;
+  }
+  /**
+   * Getter of the arraylist of pheromoes_pf
+   * @return pheromones_pf
+   */
+  public  ArrayList<Pheromone> getPheromones_pf(){
+	   return this.pheromones_pf;
+	  
+  }
+  
+  public void updatePheromone(StandardAgent<Human> agent) {
+	  if(agent.getRequestedEntityURNs()=0) {
+		  
+	  }
   }
 }
