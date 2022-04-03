@@ -12,6 +12,7 @@ import rescuecore2.standard.entities.FireBrigade;
 import rescuecore2.standard.entities.Human;
 import rescuecore2.standard.entities.StandardEntity;
 import rescuecore2.standard.entities.StandardEntityURN;
+import rescuecore2.worldmodel.*;
 import rescuecore2.worldmodel.ChangeSet;
 import rescuecore2.worldmodel.EntityID;
 import sample.AbstractSampleAgent;
@@ -24,6 +25,7 @@ public class SampleFireBrigade extends AbstractSampleAgent<FireBrigade> {
 
   private static final Logger LOG = Logger.getLogger(SampleFireBrigade.class);
   private Collection<EntityID> unexploredBuildings;
+  private ArrayList<EntityID> pathtogoal;
 
   @Override
   public String toString() {
