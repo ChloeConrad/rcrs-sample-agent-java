@@ -86,7 +86,7 @@ public final class AntSearchB {
 		    		    probV[x] += probV[x-1];
 		    		double rand = Math.random();
 		    		for(int x=0; x<probV.length; x++){
-		    		    if(rand < probV[x])
+		    		    if(rand <= probV[x])
 		    		        next = voisinsTAB[x];
 		    		        break;
 		    		    }
