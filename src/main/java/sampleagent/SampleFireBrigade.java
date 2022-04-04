@@ -67,8 +67,8 @@ public class SampleFireBrigade extends AbstractSampleAgent<FireBrigade> {
         }
       } else {
         // Try to move to the target
-        List<EntityID> path = new AntSearchB(model).antSearch(me().getPosition(),
-            unexploredBuildings);
+        List<EntityID> path = search.breadthFirstSearch(me().getPosition(),
+            next.getPosition());
         if (path != null) {
           LOG.info("Moving to target");
           sendMove(time, path);
