@@ -78,8 +78,23 @@ public final class AntSearchB {
 		    	else if(presP>0) {
 		    		EntityID[] voisinsTAB = (EntityID[]) voisins.toArray();
 		    		EntityID next = voisinsTAB[0];
-		    		for (int i=0;i<voisinsTAB.length;i++) {
-		    			if(next.getPhA()<voisinsTAB[i].getPhA() && !path.contains(voisinsTAB[i])) next = voisinsTAB[i];
+		    		float[] probV= new float[voisinsTAB.length];
+		    		for(int i=0;i<probV.length;i++) {
+		    			probV[i]=voisinsTAB[i].getPhA()/presP;
+		    		}
+		    		for(int x=1; x<probV.length; x++)
+		    		    probV[x] += probV[x-1];
+		    		double rand = Math.random();
+		    		for(int x=0; x<probV.length; x++){
+		    		    if(rand < probV[x])
+		    		        next = voisinsTAB[x];
+		    		        break;
+		    		    }
+		    		if(path.contains(next)) {
+		    			int i = (int)Math.random()*voisinsTAB.length;
+			    		if (path.contains(voisinsTAB[i])) next = moi;
+			    		else next= voisinsTAB[i];
+			    		
 		    		}
 		    		path.add(next);
 		    		moi=next;
