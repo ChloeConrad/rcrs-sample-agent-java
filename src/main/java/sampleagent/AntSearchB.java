@@ -85,7 +85,9 @@ public final class AntSearchB {
 		    		moi=next;
 		    	}
 		    }while(!foundGoal);
-
+		    for (EntityID inst : path){
+		    	inst.setPhA(inst.getPhA()+10);
+		    }
 		    return path;
 		  }
 	
