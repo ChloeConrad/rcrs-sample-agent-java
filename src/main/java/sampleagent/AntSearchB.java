@@ -74,7 +74,7 @@ public final class AntSearchB {
 		    		path.add(voisinsTAB[i]);
 		    		moi=voisinsTAB[i];
 		    	}
-		    	//si il y a des phermonones presentes on parcours les possibilité et on prends celle qui a le plus de pheromones
+		    	//si il y a des phermonones presentes on parcours les possibilité et on regarde les probabilité d'aller sur l'une qui contient des pheromones et on choisis en fonction de ça
 		    	else if(presP>0) {
 		    		EntityID[] voisinsTAB = (EntityID[]) voisins.toArray();
 		    		EntityID next = voisinsTAB[0];
