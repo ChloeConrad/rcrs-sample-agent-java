@@ -27,6 +27,7 @@ public class AntSearch {
 	private Set<EntityID>                buildingSet;
 
 	
+	
 	public AntSearch(StandardWorldModel world ) {
 		  Map<EntityID, Set<EntityID>> neighbours = new LazyMap<EntityID, Set<EntityID>>() {
 
@@ -48,6 +49,12 @@ public class AntSearch {
 		    this.graph = neighbours;
 	}
 	
+	/**
+	 * Méthode permettant de définir un chemin entre l'entité start et une des entités goal en utilisant un algorithme d'essaim 
+	 * @param start
+	 * @param goals
+	 * @return le chemin choisi sous forme d'une liste d'EntityID
+	 */
 	public List<EntityID> seachBySwarm( EntityID start,
 		      Collection<EntityID> goals ){
 		List<EntityID> path = new ArrayList<EntityID>();
@@ -79,9 +86,11 @@ public class AntSearch {
 				}
 			}
 			
-			//Si aucun voisin n'a de phéromone, choisi un chemin random
+			//Si aucun voisin n'a de phéromone, choisi un chemin random + test si chemin n'a pas déja été emprunté 
 			if(maxProba==0)
-				nextStart = randomWay(possibilities);
+				do {
+					nextStart = randomWay(possibilities);
+				}while(path.contains(nextStart));
 			path.add(nextStart);
 			
 		}while(!findGoals);
@@ -94,12 +103,23 @@ public class AntSearch {
 		 
 	 }
 	
+	/**
+	 * Fonction permettant de choisir un chemin de manière aléatoire parmis un set de chemin possible
+	 * @param possibilities
+	 * @return l'entité choisi pour la prochaine étape du chemin sous forme d'entityID
+	 */
+	
 	private EntityID randomWay(Set<EntityID> possibilities) {
 		EntityID[] possibilitiesTAb = (EntityID[]) possibilities.toArray();
 		int random = (int)Math.random()*possibilitiesTAb.length;
 		return possibilitiesTAb[random];
 	}
 	 
+	/**
+	 * FOnction permettant de calculer la somme des phéromones contenues dans l'ensemble des entités du set passer en paramètre 
+	 * @param entities
+	 * @return la valeur de la somme sous forme de float
+	 */
 	private float pheromoneSomme(Set<EntityID> entities) {
 		float res = 0;
 		for(EntityID entity : entities) 

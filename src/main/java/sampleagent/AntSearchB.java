@@ -59,10 +59,13 @@ public final class AntSearchB {
 		    		if(goals.contains(voisin)) {
 		    			path.add(voisin);
 		    			foundGoal=true;
+		    			
+		    			//si tu return à ce moment là tu sord de la méthode et donc pas de mise à jour des phéromone 
 		    			return path;
 		    		}
 		    	}
 		    	//On verifie la presence de pheromones parmis les voisins
+		    	// t'es pas plutôt en train de compter la quantité totale de phéromones parmis les voisins là ?
 		    	for (EntityID voisin : voisins) {
 		    		presP=presP+voisin.getPhA();
 		    	}
@@ -75,6 +78,7 @@ public final class AntSearchB {
 		    		moi=voisinsTAB[i];
 		    	}
 		    	//si il y a des phermonones presentes on parcours les possibilité et on regarde les probabilité d'aller sur l'une qui contient des pheromones et on choisis en fonction de ça
+		    	//Pas compris l'algo
 		    	else if(presP>0) {
 		    		EntityID[] voisinsTAB = (EntityID[]) voisins.toArray();
 		    		EntityID next = voisinsTAB[0];
